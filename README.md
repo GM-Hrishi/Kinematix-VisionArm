@@ -28,10 +28,12 @@ and plant watering, with two control modes:
 
 - [`docs/wiring.md`](docs/wiring.md) — ESP32 GPIO/servo pin map and control scheme
 - [`docs/firmware.md`](docs/firmware.md) — Firmware version history and behavior notes
+- [`docs/roadmap.md`](docs/roadmap.md) — Known issues and roadmap
 - [`CREDITS.md`](CREDITS.md) — Design attribution
 
-Code (firmware, `arm_control.py`, Gazebo world files) will be added in a
-follow-up commit.
+Firmware (`.ino`) and the `arm_control.py` script live on a separate Ubuntu
+machine and will be added in a follow-up commit. Gazebo/ROS2 simulation
+files are intentionally left out of this repo for now.
 
 ## Hardware summary
 
