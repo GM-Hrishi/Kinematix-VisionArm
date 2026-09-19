@@ -15,9 +15,6 @@
   servos hold position reliably. Expect sag and buzzing near maximum reach.
 
 **Firmware**
-- Re-engaging from "limp" mode currently resumes from the previous pose
-  instead of resetting to rest — needs a fix so limp → re-engage always
-  starts from rest.
 - Xbox controller disconnects frequently over Bluetooth (Bluepad32) — root
   cause is Bluetooth dropouts, not ESP32 resets.
 
@@ -32,8 +29,11 @@
 
 ## Roadmap
 
-- [ ] Build the gripper (GPIO32) — not yet implemented
-- [ ] Fix limp → re-engage to reset to rest position
+- [x] Fix limp → re-engage to reset to rest position — **done in V11**
+      (`exitLimpMode()` snaps all joint targets to REST before motion
+      resumes, so the arm doesn't jump from wherever it sagged to while limp)
+- [ ] Build the gripper (GPIO32) — wired but mechanically unfinished; code
+      is present and gated behind `#define GRIPPER_ENABLED 0`
 - [ ] Complete Raspberry Pi 5 migration: Pi as main control hub, ESP32 kept
       as servo driver over USB
 - [ ] Camera-guided mode: phone camera + OpenCV + `ikpy` inverse kinematics,
